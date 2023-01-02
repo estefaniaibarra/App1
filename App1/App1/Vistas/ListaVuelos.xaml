@@ -1,0 +1,75 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.ListaVuelos"
+             NavigationPage.HasNavigationBar="False" Background="#242424">
+    <ContentPage.Content>
+        <StackLayout >
+            <StackLayout Padding="10,0"  Background="black" Orientation="Horizontal">
+                <Label  Padding="0,25" TextColor="White" Text=" Aerolínea Mx"  HorizontalOptions="StartAndExpand" 
+                           FontAttributes="Bold"  VerticalOptions="Center" FontSize="26" />
+                <ImageButton Command="{Binding VerAgregarCommand}" WidthRequest="40" Source="addbutton" BackgroundColor="Black"></ImageButton>
+            </StackLayout>
+            <DatePicker Background="white" ></DatePicker>
+            <ScrollView>
+                <CollectionView>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <StackLayout HeightRequest="250" Margin="10,10">
+
+                                <Frame  Background="#D9D9D9" CornerRadius="20">
+                                    <Frame.Resources>
+                                        <Style TargetType="Label">
+                                            <Setter Property="TextColor" Value="Black"/>
+                                            <Setter Property="FontSize" Value="16"/>
+                                        </Style>
+                                    </Frame.Resources>
+                                    <Grid ColumnSpacing="0">
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition ></RowDefinition>
+                                            <RowDefinition ></RowDefinition>
+                                            <RowDefinition ></RowDefinition>
+                                            <RowDefinition ></RowDefinition>
+                                            <RowDefinition ></RowDefinition>
+                                        </Grid.RowDefinitions>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width=".3*"/>
+                                            <ColumnDefinition Width=".3*" />
+                                            <ColumnDefinition Width=".4*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Label Grid.Row="0" Padding="0" Margin="0" Grid.Column="0" 
+                               Text="Vuelo:"/>
+                                        <Label Grid.Row="0" Padding="0"  Grid.Column="1"
+                               FontAttributes="Bold" FontSize="18" Text="{Binding Vuelo}"/>
+                                        <Label Padding="0" Margin="0" Grid.Row="1"  Grid.Column="0" Grid.ColumnSpan="2"
+                               >Hora de salida:</Label>
+                                        <Label Padding="0" Margin="0" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2"
+                               FontAttributes="Bold" Text="{Binding Tiempo}"></Label>
+                                        <Label Padding="0" Margin="0"  Grid.Row="3" Grid.Column="0"
+                               VerticalTextAlignment="Center">Destino:</Label>
+                                        <Label Padding="0" Margin="0"  Grid.Row="4" Grid.Column="0" FontAttributes="Bold"
+                               Text="{Binding Destino}" VerticalTextAlignment="Center"></Label>
+
+                                        <Label Padding="0" Margin="0"  Grid.Row="1" Grid.Column="2">Puerta de salida:</Label>
+                                        <Label Padding="0" Margin="0"  Grid.Row="2" Grid.Column="2" 
+                               HorizontalTextAlignment="Center" FontAttributes="Bold"  Text="{Binding Puerta}"></Label>
+                                        <Label Padding="0" Margin="0"  Grid.Row="3" Grid.Column="1"
+                               VerticalTextAlignment="Center">Estatus:</Label>
+                                        <Label Padding="0" Margin="0"  Grid.Row="4" Grid.Column="1" FontAttributes="Bold" 
+                               VerticalTextAlignment="Center" Text="{Binding Status}"></Label>
+
+                                        <Button CornerRadius="10"  BackgroundColor="#FFDC67"   Grid.Row="3" Grid.Column="2" Text="Editar" />
+                                            <Button Command="{Binding Source={x:Reference list}, Path=BindingContext.CancelarCommand}"
+                                                  CommandParameter="{Binding .}" CornerRadius="10" BackgroundColor="Black" TextColor="#FFDC67" 
+                                                    Text="Cancelar" Grid.Column="2" Grid.Row="4"/>
+                                    </Grid>
+                                </Frame>
+
+                            </StackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

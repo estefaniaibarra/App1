@@ -11,28 +11,35 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="NewFolder\**" />
-    <EmbeddedResource Remove="NewFolder\**" />
-    <None Remove="NewFolder\**" />
-  </ItemGroup>
-
-  <ItemGroup>
     <EmbeddedResource Remove="MainPage.xaml" />
   </ItemGroup>
 
   <ItemGroup>
-    <None Remove="Assets\avionsito.png" />
+    <None Remove="Assets\Avion.png" />
+    <None Remove="Assets\MF RooneySans Regular.ttf" />
     <None Remove="avionsito.png" />
     <None Remove="despegue-del-avion.png" />
+    <None Remove="plane.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="plane.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xam.Plugins.Forms.ImageCircle" Version="3.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="5.0.0.2196" />
     <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Assets\avionsito.png" />
+    <Resource Include="Assets\Avion.png" />
+    <Resource Include="Assets\avionsito.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Assets\MF RooneySans Regular.ttf" />
     <Resource Include="avionsito.png" />
     <Resource Include="despegue-del-avion.png" />
     <Resource Include="MainPage.xaml">
@@ -47,13 +54,16 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Views\AgregarVuelos.xaml">
+    <EmbeddedResource Update="Vistas\AgregarVuelos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\ListaVuelos.xaml">
+    <EmbeddedResource Update="Vistas\EditarVuelos.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-    <EmbeddedResource Update="Views\PrincipalView.xaml">
+    <EmbeddedResource Update="Vistas\ListaVuelos.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Vistas\PrincipalView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
   </ItemGroup>

@@ -1,0 +1,52 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="App1.Views.AgregarVuelos"
+             NavigationPage.HasNavigationBar="False" Background="#242424">
+    <ContentPage.Content>
+        <StackLayout>
+            <StackLayout >
+
+                <StackLayout Padding="10,0"  Background="black" Orientation="Horizontal">
+                    <Label Padding="0,25" TextColor="White" Text=" Aerolínea Mx"  HorizontalOptions="StartAndExpand" 
+                           FontAttributes="Bold"  VerticalOptions="Center" FontSize="26" />
+                </StackLayout>
+            </StackLayout>
+            <Image Source="fondo7" Aspect="Fill" Margin="0,-5" ></Image>
+            
+                <Frame CornerRadius="30" Margin="20,-860">
+                <StackLayout Padding="10" BackgroundColor="White" >
+
+                    <StackLayout >
+                        <StackLayout.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="TextColor" Value="Black"/>
+                            </Style>
+                            <Style TargetType="Entry">
+                                <Setter Property="TextColor" Value="Black"/>
+                            </Style>
+                        </StackLayout.Resources>
+                        <Label FontAttributes="Bold" FontSize="20" Text="¡Ingresa los datos para tu próximo destino!"/>
+                        <Label>Fecha de salida:</Label>
+                        <DatePicker    Date="{Binding Fecha}"></DatePicker>
+                        <Label>Hora de salida:</Label>
+                        <TimePicker   Time="{ Binding Hora}"></TimePicker>
+
+                        <Label>Destino:</Label>
+                        <Entry Text="{Binding Partida.Destino}"></Entry>
+
+                        <Label>Clave de Vuelo:</Label>
+                        <Entry Text="{Binding Partida.Vuelo}"></Entry>
+
+                        <Label>Puerta de salida:</Label>
+
+                        <Picker ItemsSource="{Binding Puertas}" SelectedItem="{Binding Partida.Puerta}"></Picker>
+
+                        <Button TextColor="White" CornerRadius="40" BackgroundColor="#242424" Command="{Binding AgregarCommand }" Text="Agregar"></Button>
+                        <Label Text="{Binding Errores}"></Label>
+                    </StackLayout>
+                </StackLayout>
+            </Frame>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

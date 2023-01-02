@@ -1,4 +1,5 @@
 ﻿using App1.Views;
+using App1.Vistas;
 using System;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
@@ -11,7 +12,7 @@ namespace App1
         {
             InitializeComponent();
 
-            MainPage = new NavigationPage(new PrincipalView());
+            MainPage = new NavigationPage(new ListaVuelos());
         }
 
         protected override void OnStart()
